@@ -5,10 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.Period;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,7 +28,7 @@ public class HelloController {
             LocalDateTime idopont = LocalDateTime.parse(bekertIdo, DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss"));
             Period datum = Period.between(LocalDate.now(), idopont.toLocalDate());
             Duration idopontokKozott = Duration.between(LocalDateTime.now(), idopont);
-            if (!idopontokKozott.isNegative() || !idopontokKozott.isNegative()) {
+            if (!datum.isNegative() || !idopontokKozott.isNegative()) {
                 megnyomniAGombot = false;
                 datumIdoTimer = new Timer();
                 TimerTask timerTaskunk = new TimerTask() {
@@ -63,7 +60,7 @@ public class HelloController {
                 hatralevoIdo.setText("A dátum vagy idő nem lehet negatív szám!");
             }
         }
-        catch (Exception e) {
+        catch (DateTimeException e) {
             hatralevoIdo.setText("Nem megfelelő időpont!");
 
         }
