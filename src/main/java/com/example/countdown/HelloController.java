@@ -5,15 +5,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 public class HelloController {
     @FXML
-    public Label megadottIdopont;
+    public TextField megadottIdopont;
     @FXML
     public Label hatralevoIdo;
 
 
     public void inditas(ActionEvent actionEvent) {
+
 
 
     }
