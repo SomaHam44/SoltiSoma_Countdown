@@ -22,6 +22,7 @@ public class HelloController {
     @FXML
     public Button inditosGomb;
     private Timer datumIdoTimer;
+    private boolean megnyomniAGombot;
 
 
     public void inditas(ActionEvent actionEvent) {
@@ -31,6 +32,7 @@ public class HelloController {
             Period datum = Period.between(LocalDate.now(), idopont.toLocalDate());
             Duration idopontokKozott = Duration.between(LocalDateTime.now(), idopont);
             if (!idopontokKozott.isNegative() || !idopontokKozott.isNegative()) {
+                megnyomniAGombot = false;
                 datumIdoTimer = new Timer();
                 TimerTask timerTaskunk = new TimerTask() {
                     @Override
@@ -43,11 +45,13 @@ public class HelloController {
                         int orank = idopontokKozott.toHoursPart();
                         int percunk = idopontokKozott.toMinutesPart();
                         int masodpercunk = idopontokKozott.toSecondsPart();
-                        Platform.runLater(() -> hatralevoIdo.setText(evunk + "." + honapunk + "." +
-                                napunk + " " + orank + ":" + percunk + ":" + masodpercunk));
+                        Platform.runLater(() -> hatralevoIdo.setText(evunk + " év " + honapunk + " hó " +
+                                napunk + " nap " + "0" + orank + ":" + "0" + percunk + ":" + "0" + masodpercunk));
                         if (evunk == 0 && honapunk == 0 && napunk == 0 && orank == 0 && percunk == 0 && masodpercunk == 0) {
                             datumIdoTimer.cancel();
                             Platform.runLater(()->lejartAzIdo());
+                            megnyomniAGombot = true;
+                            Platform.runLater(() -> inditosGomb.setText("Indít"));
                         }
                     }
 
