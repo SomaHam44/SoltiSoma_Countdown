@@ -15,14 +15,18 @@
    </columnConstraints>
    <rowConstraints>
       <RowConstraints minHeight="50.0" />
-      <RowConstraints minHeight="50.0" />
+      <RowConstraints minHeight="80.0" />
    </rowConstraints>
    <children>
-          <Label fx:id="megadottIdopont" text="2025.09.13. 15:00:00" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-          <Button onAction="#onHelloButtonClick" prefWidth="70.0" text="Indít" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+          <Label fx:id="megadottIdopont" style="-fx-border-width: 2;        -fx-border-color: black;        -fx-border-style: solid;" text="2025.09.13. 15:00:00" GridPane.columnIndex="0" GridPane.rowIndex="0">
+              <padding>
+                  <Insets bottom="5" left="10" right="10" top="5" />
+              </padding>
+          </Label>
+          <Button onAction="#inditas" prefWidth="80.0" style="-fx-border-width: 2;        -fx-border-color: black;        -fx-background-color: lightgrey;        -fx-border-style: solid;" text="Indít" GridPane.columnIndex="1" GridPane.rowIndex="0" />
           <Label fx:id="hatralevoIdo" text="3 év 5 hó 15 nap 03:11:52" GridPane.columnIndex="0" GridPane.rowIndex="1">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font></Label>
    </children>
 </GridPane>
