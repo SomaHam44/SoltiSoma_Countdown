@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.countdown.HelloController">
+<GridPane xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.countdown.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="15" left="15" right="15" top="15" />
     </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <columnConstraints>
+      <ColumnConstraints minWidth="50.0" />
+      <ColumnConstraints minWidth="50.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="50.0" />
+      <RowConstraints minHeight="50.0" />
+   </rowConstraints>
+   <children>
+          <Label fx:id="megadottIdopont" text="2025.09.13. 15:00:00" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+          <Button onAction="#onHelloButtonClick" prefWidth="70.0" text="Indít" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+          <Label fx:id="hatralevoIdo" text="3 év 5 hó 15 nap 03:11:52" GridPane.columnIndex="0" GridPane.rowIndex="1">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+   </children>
+</GridPane>
