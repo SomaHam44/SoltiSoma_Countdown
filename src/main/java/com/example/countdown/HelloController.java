@@ -3,10 +3,7 @@ package com.example.countdown;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -22,6 +19,8 @@ public class HelloController {
     public TextField megadottIdopont;
     @FXML
     public Label hatralevoIdo;
+    @FXML
+    public Button inditosGomb;
     private Timer datumIdoTimer;
 
 
@@ -46,7 +45,12 @@ public class HelloController {
                         int masodpercunk = idopontokKozott.toSecondsPart();
                         Platform.runLater(() -> hatralevoIdo.setText(evunk + "." + honapunk + "." +
                                 napunk + " " + orank + ":" + percunk + ":" + masodpercunk));
+                        if (evunk == 0 && honapunk == 0 && napunk == 0 && orank == 0 && percunk == 0 && masodpercunk == 0) {
+                            datumIdoTimer.cancel();
+                            Platform.runLater(()->lejartAzIdo());
+                        }
                     }
+
                 };
                 datumIdoTimer.schedule(timerTaskunk,1 ,1 );
 
